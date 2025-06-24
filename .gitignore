@@ -1,0 +1,56 @@
+.idea/
+*.log
+.DS_Store
+
+<<<<<<<< HEAD:uni-app/.gitignore
+# Logs
+logs
+*.log
+========
+.idea/
+/web/node_modules
+/web/dist
+
+.DS_Store
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+>>>>>>>> upstream/main:.gitignore
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+.DS_Store
+dist
+*.local
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+<<<<<<<< HEAD:uni-app/.gitignore
+*.sw?
+========
+*.sw?
+
+rm_file/
+/server/log/
+/server/gva
+/server/server
+/server/latest_log
+/server/__debug_bin*
+server/uploads/
+
+*.iml
+web/.pnpm-debug.log
+web/pnpm-lock.yaml
+>>>>>>>> upstream/main:.gitignore
+/server/auth.pem
