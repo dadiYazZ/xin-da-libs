@@ -3,7 +3,7 @@ package encryption
 import (
 	"crypto"
 	"errors"
-	"github.com/dadiYazZ/xin-da-libs/fmt"
+	"github.com/dadiYazZ/xin-da-libs/xin-da-fmt"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -18,8 +18,8 @@ func Test_RSA_GenerateKey(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	fmt.Dump(encryptor.PrivateKey)
-	fmt.Dump(encryptor.PublicKey)
+	xin_da_fmt.Dump(encryptor.PrivateKey)
+	xin_da_fmt.Dump(encryptor.PublicKey)
 }
 
 func Test_RSA_SaveKeys(t *testing.T) {
@@ -110,7 +110,7 @@ func Test_RSA_EncryptMessage(t *testing.T) {
 		t.Error(err)
 	}
 
-	fmt.Dump(a, string(decodeMsg))
+	xin_da_fmt.Dump(a, string(decodeMsg))
 	assert.EqualValues(t, a, string(decodeMsg))
 
 }

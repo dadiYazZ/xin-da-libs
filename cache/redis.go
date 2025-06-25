@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"time"
 
-	fmt2 "github.com/dadiYazZ/xin-da-libs/fmt"
 	"github.com/dadiYazZ/xin-da-libs/object"
+	fmt2 "github.com/dadiYazZ/xin-da-libs/xin-da-fmt"
 	"github.com/redis/go-redis/v9"
 )
 
@@ -60,7 +60,7 @@ func NewGRedis(opts *redis.UniversalOptions) (gr *GRedis) {
 func (gr *GRedis) AddNX(key string, value interface{}, ttl time.Duration) bool {
 	cmd := gr.Pool.SetNX(CTXRedis, key, value, ttl)
 	r, err := cmd.Result()
-	//fmt.Printf("r:%b \r\n", r)
+	//xin-da-fmt.Printf("r:%b \r\n", r)
 	if err != nil {
 		fmt.Errorf("SetNX error: %+v \r\n", err)
 	}
@@ -100,13 +100,13 @@ func (gr *GRedis) SetEx(key string, value interface{}, expires time.Duration) er
 
 	//luaScript := redis.NewScript(SCRIPT_SETEX)
 	//cmd := luaScript.Run(gr.Pool.Context(),gr.Pool, []string{key}, mExpire, mValue)
-	//fmt.Printf("result:%s \r\n",cmd.String())
-	//fmt.Printf("err:%s \r\n", cmd.Err())
+	//xin-da-fmt.Printf("result:%s \r\n",cmd.String())
+	//xin-da-fmt.Printf("err:%s \r\n", cmd.Err())
 
 	// connPool := gr.Pool.Conn()
 	cmd := gr.Pool.SetEx(CTXRedis, key, mValue, expires)
 	//fmt2.Dump(connPool.Pipeline())
-	//fmt.Printf("result:", cmd.String())
+	//xin-da-fmt.Printf("result:", cmd.String())
 
 	return cmd.Err()
 }

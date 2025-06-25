@@ -2,7 +2,7 @@ package object
 
 import (
 	fmt2 "fmt"
-	"github.com/dadiYazZ/xin-da-libs/fmt"
+	"github.com/dadiYazZ/xin-da-libs/xin-da-fmt"
 	"github.com/stretchr/testify/assert"
 	"reflect"
 	"testing"
@@ -46,7 +46,7 @@ func Test_Map2Xml(t *testing.T) {
 
 	xmlObj := Map2Xml(&obj, false)
 	println(xmlObj)
-	fmt.Dump(xmlObj)
+	xin_da_fmt.Dump(xmlObj)
 
 }
 
@@ -76,7 +76,7 @@ func Test_StringMap2Xml(t *testing.T) {
 
 	xmlObj := StringMap2Xml(&obj)
 	println(xmlObj)
-	fmt.Dump(xmlObj)
+	xin_da_fmt.Dump(xmlObj)
 
 }
 
@@ -198,5 +198,5 @@ func Test_DumpXML(t *testing.T) {
 	<author>J.K. 中文来的</author>\n  <publisher>中文来的</publisher>\n
 	<publishedYear>1997</publishedYear>\n</book>"`
 	fmt2.Println(str)
-	//fmt.Dump(str)
+	//xin-da-fmt.Dump(str)
 }

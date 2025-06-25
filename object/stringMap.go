@@ -53,7 +53,7 @@ func ConvertStringMapToString(m *StringMap, separate string) string {
 	for key, value := range *m {
 		fmt.Fprintf(&b, "%s=%s%s", key, value, separate)
 	}
-	//fmt.Fprint(&b, "/0")
+	//xin-da-fmt.Fprint(&b, "/0")
 	return b.String()
 }
 

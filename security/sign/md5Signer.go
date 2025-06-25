@@ -35,7 +35,7 @@ func (signer *MD5Signer) Verify(msg string, signature string) (err error) {
 
 	signedMsg, err := signer.Sign(msg)
 
-	//fmt.Dump(msg, signedMsg, signedMsg)
+	//xin-da-fmt.Dump(msg, signedMsg, signedMsg)
 	if signature != signedMsg {
 		return errors.New("failed to verify sign")
 	}
@@ -55,7 +55,7 @@ func (signer *MD5Signer) KSortDataToMessage(data *object.StringMap) (msg string,
 
 	// join
 	for _, k := range keys {
-		//fmt.Println("key:", k, "Value:", mapData[k])
+		//xin-da-fmt.Println("key:", k, "Value:", mapData[k])
 		msg = msg + k + "=" + mapData[k] + "&"
 	}
 
@@ -77,7 +77,7 @@ func (signer *MD5Signer) KSortObjectToMessage(data *object.HashMap) (msg string,
 
 	// join
 	for _, k := range keys {
-		//fmt.Println("key:", k, "Value:", mapData[k])
+		//xin-da-fmt.Println("key:", k, "Value:", mapData[k])
 		msg = msg + fmt.Sprintf("%s=%v&", k, mapData[k])
 	}
 

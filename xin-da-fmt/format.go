@@ -1,4 +1,4 @@
-package fmt
+package xin_da_fmt
 
 import (
 	"bytes"
@@ -43,7 +43,7 @@ func dump(data interface{}) {
 		err        error
 	)
 	if data == nil {
-		//fmt.Print("[nil]\r\n")
+		//xin-da-fmt.Print("[nil]\r\n")
 
 	} else if reflect.TypeOf(data).Kind() != reflect.String {
 		prettyJson, err = PrettyJson(data)
@@ -54,7 +54,7 @@ func dump(data interface{}) {
 	}
 
 	if err != nil {
-		fmt.Printf("convert pretty fmt error:%v \r\n", err)
+		fmt.Printf("convert pretty xin-da-fmt error:%v \r\n", err)
 	}
 	fmt.Printf("%+v \r\n", prettyJson)
 }

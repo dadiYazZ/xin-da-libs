@@ -3,7 +3,7 @@ package database
 import (
 	"errors"
 	fmt2 "fmt"
-	"github.com/dadiYazZ/xin-da-libs/fmt"
+	"github.com/dadiYazZ/xin-da-libs/xin-da-fmt"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 	"time"
@@ -149,7 +149,7 @@ func AppendMorphPivots(db *gorm.DB, pivots []PivotInterface) (err error) {
 
 func SyncMorphPivots(db *gorm.DB, pivots []PivotInterface) (err error) {
 	if len(pivots) <= 0 {
-		fmt.Dump("pivots is empty")
+		xin_da_fmt.Dump("pivots is empty")
 		return nil
 	}
 	err = db.Transaction(func(tx *gorm.DB) error {
@@ -228,7 +228,7 @@ func SelectMorphPivot(db *gorm.DB, pivot PivotInterface) (result *gorm.DB) {
 func UpsertPivots(db *gorm.DB, uniqueName string, pivots []PivotInterface, fieldsToUpdate []string) error {
 
 	if len(pivots) <= 0 {
-		fmt.Dump("pivots is empty")
+		xin_da_fmt.Dump("pivots is empty")
 		return nil
 	}
 

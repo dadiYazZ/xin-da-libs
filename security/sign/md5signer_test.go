@@ -42,7 +42,7 @@ func Test_MD5_KSortObjectToMessage(t *testing.T) {
 	}
 
 	sortMsg, err := signer.KSortObjectToMessage(arrayData)
-	//fmt.Dump(sortMsg)
+	//xin-da-fmt.Dump(sortMsg)
 	if err != nil {
 		t.Error(err)
 	}

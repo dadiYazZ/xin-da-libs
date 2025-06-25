@@ -2,7 +2,7 @@ package object
 
 import (
 	"encoding/json"
-	"github.com/dadiYazZ/xin-da-libs/fmt"
+	"github.com/dadiYazZ/xin-da-libs/xin-da-fmt"
 	"reflect"
 )
 
@@ -38,8 +38,8 @@ func GetModelTags(t reflect.Type, tagName string) (tags []string) {
 	//t := reflect.TypeOf(model)
 
 	// Get the type and kind of our user variable
-	//fmt.Println("Type:", t.Name())
-	//fmt.Println("Kind:", t.Kind())
+	//xin-da-fmt.Println("Type:", t.Name())
+	//xin-da-fmt.Println("Kind:", t.Kind())
 
 	tags = []string{}
 	subTags := []string{}
@@ -57,7 +57,7 @@ func GetModelTags(t reflect.Type, tagName string) (tags []string) {
 			tag := field.Tag.Get(tagName)
 			tags = append(tags, tag)
 		}
-		fmt.Dump(tags)
+		xin_da_fmt.Dump(tags)
 
 	}
 	return tags

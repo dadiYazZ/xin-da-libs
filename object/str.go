@@ -243,7 +243,7 @@ func Shuffle(str string) string {
 
 	inRune := []rune(str)
 	rand.Shuffle(len(inRune), func(i, j int) {
-		//fmt.Printf("i:%d, j:%d ", i, j)
+		//xin-da-fmt.Printf("i:%d, j:%d ", i, j)
 		inRune[i], inRune[j] = inRune[j], inRune[i]
 	})
 	return string(inRune)

@@ -2,6 +2,7 @@ package logger
 
 import (
 	"context"
+	"github.com/dadiYazZ/xin-da-libs/logger/drivers/zap"
 	"github.com/dadiYazZ/xin-da-libs/object"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/sdk/trace"
@@ -100,4 +101,42 @@ func Test_Log_Info_To_File(t *testing.T) {
 	logger.Info("test info with context")
 	logger.InfoF("current time %s", time.Now().Format("2006-01-02 15:04:05"))
 	logger.Error("test error with context")
+}
+
+func Test_Log_v2(t *testing.T) {
+	//logger, err := NewLogger(nil, &object.HashMap{
+	//	"env":        "test",
+	//	"outputPath": strOutputPath,
+	//	"errorPath":  strErrorPath,
+	//	"stdout":     true,
+	//})
+
+	logger, err := NewLoggerV2(nil, &zap.LoggerConfig{
+		Env:     "dev",
+		Level:   "info",
+		Stdout:  false,
+		LogDir:  "./log",
+		FileExt: ".log",
+	})
+
+	if err != nil {
+		t.Error(err)
+	}
+
+	// without context
+	logger.Info("test info", "app response", &http.Response{})
+
+	logger.Info("test object", "1", "1", map[string]interface{}{
+		"1": 1,
+		"2": 2,
+	})
+
+	// log with context，will append traceId and spanId if ctx hash trace info
+	tracer := otel.Tracer("example-tracer")
+	ctx, span := tracer.Start(context.Background(), "test")
+	defer span.End()
+
+	logger.WithContext(ctx).Info("test info with context")
+	logger.WithContext(ctx).InfoF("current time %s", time.Now().Format("2006-01-02 15:04:05"))
+
 }

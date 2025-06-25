@@ -302,7 +302,7 @@ func GetModelFields(model interface{}) (fields []string) {
 		return (*ArrayModelFields)[modelName].([]string)
 	}
 
-	//fmt.Printf("parse object ~%s~ model fields \n", modelName)
+	//xin-da-fmt.Printf("parse object ~%s~ model fields \n", modelName)
 	gormSchema, err := schema.Parse(model, &sync.Map{}, schema.NamingStrategy{})
 	if err != nil {
 		println(err)
@@ -316,14 +316,14 @@ func GetModelFields(model interface{}) (fields []string) {
 		}
 	}
 	(*ArrayModelFields)[modelName] = fields
-	//fmt.Printf("parsed object ~%s~ model fields and fields count is %d \n\n", modelName, len(fields))
+	//xin-da-fmt.Printf("parsed object ~%s~ model fields and fields count is %d \n\n", modelName, len(fields))
 
 	return fields
 }
 
 func GetModelFieldValues(model interface{}) (mapFields *object.HashMap, err error) {
 
-	//fmt.Printf("parse object ~%s~ model fields \n", modelName)
+	//xin-da-fmt.Printf("parse object ~%s~ model fields \n", modelName)
 	gormSchema, err := schema.Parse(model, &sync.Map{}, schema.NamingStrategy{})
 	if err != nil {
 		println(err)

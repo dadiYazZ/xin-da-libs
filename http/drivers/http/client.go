@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/dadiYazZ/xin-da-libs/fmt"
 	"github.com/dadiYazZ/xin-da-libs/http/contract"
+	"github.com/dadiYazZ/xin-da-libs/xin-da-fmt"
 	"github.com/pkg/errors"
 )
 
@@ -75,7 +75,7 @@ func (c *Client) SetConfig(config *contract.ClientConfig) {
 		certPair, err := tls.LoadX509KeyPair(config.Cert.CertFile, config.Cert.KeyFile)
 		if err != nil {
 			err = errors.Wrap(err, "failed to load certificate")
-			fmt.Dump(err)
+			xin_da_fmt.Dump(err)
 			return
 		}
 		coreClient.Transport = &http.Transport{TLSClientConfig: &tls.Config{

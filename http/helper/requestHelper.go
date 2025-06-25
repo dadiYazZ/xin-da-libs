@@ -83,7 +83,7 @@ func (r *RequestHelper) ParseResponseBodyToMap(rs *http2.Response, outBody *obje
 
 	contentType := rs.Header.Get("Content-Type")
 
-	//fmt.Dump(123, contentType)
+	//xin-da-fmt.Dump(123, contentType)
 
 	if strings.Contains(contentType, "application/xml") || strings.Contains(contentType, "text/xml") {
 		*outBody, err = object.Xml2Map(b)
@@ -112,7 +112,7 @@ func (r *RequestHelper) ParseResponseBodyContent(rs *http2.Response, outBody int
 
 	contentType := rs.Header.Get("Content-Type")
 
-	//fmt.Dump(456, contentType)
+	//xin-da-fmt.Dump(456, contentType)
 	if strings.Contains(contentType, "application/xml") || strings.Contains(contentType, "text/xml") {
 		err = xml.Unmarshal(b, outBody)
 		if err != nil {

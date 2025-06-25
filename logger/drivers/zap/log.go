@@ -90,7 +90,7 @@ func newZapLogger(config *object.HashMap) (logger *zap.Logger, err error) {
 
 	// 添加 level 字段
 	level, ok := (*config)["level"].(string)
-	//fmt.Dump(level, ok)
+	//xin-da-fmt.Dump(level, ok)
 	if ok {
 		switch level {
 		case "debug":

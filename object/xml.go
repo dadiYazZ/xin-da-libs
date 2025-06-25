@@ -6,7 +6,7 @@ import (
 	"encoding/xml"
 	"fmt"
 	"github.com/clbanning/mxj/v2"
-	fmt2 "github.com/dadiYazZ/xin-da-libs/fmt"
+	fmt2 "github.com/dadiYazZ/xin-da-libs/xin-da-fmt"
 	"strings"
 )
 

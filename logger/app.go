@@ -35,6 +35,28 @@ func NewLogger(driver interface{}, config *object.HashMap) (logger *Logger, err 
 
 }
 
+// NewLoggerV2 loggerV2 版本
+func NewLoggerV2(driver interface{}, config *zap.LoggerConfig) (logger *Logger, err error) {
+
+	var driverLogger contract.LoggerInterface
+	if driver != nil {
+		d, ok := driver.(contract.LoggerInterface)
+		if !ok {
+			return nil, errors.New("driver is not of type contract.LoggerInterface")
+		}
+		driverLogger = d
+	} else {
+		driverLogger, err = zap.NewLoggerV2(config)
+	}
+
+	logger = &Logger{
+		Driver: driverLogger,
+	}
+
+	return logger, err
+
+}
+
 func (log *Logger) WithContext(ctx context.Context) contract.LoggerInterface {
 	log.ctx = ctx
 	return log

@@ -46,7 +46,7 @@ func NewMemCache(namespace string, defaultLifeTime time.Duration, directory stri
 
 	//err = memCache.Cache.LoadFile(path)
 	//if err != nil {
-	//	fmt.Println(err.Error())
+	//	xin-da-fmt.Println(err.Error())
 	//}
 
 	ACCache = memCache

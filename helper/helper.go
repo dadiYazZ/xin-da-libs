@@ -12,7 +12,7 @@ import (
 )
 
 /**
- * Transform Array Keys to Camel fmt
+ * Transform Array Keys to Camel xin-da-fmt
  *
  * @param  string $mx
  * @return strID
@@ -32,7 +32,7 @@ func TransformArrayKeysToCamel(arrayData HashMap) HashMap {
 }
 
 /**
- * Transform Array Keys to Snake fmt
+ * Transform Array Keys to Snake xin-da-fmt
  *
  * @param  string $mx
  * @return strID
@@ -89,7 +89,7 @@ func HashPassword(plainPassword string) (hashedPassword string) {
 	hashed := sha256.Sum256([]byte(plainPassword))
 	strHashed := fmt.Sprintf("%x", hashed)
 
-	//fmt.Println("Hashed password", strHashed)
+	//xin-da-fmt.Println("Hashed password", strHashed)
 
 	return strHashed
 
@@ -101,7 +101,7 @@ func EncodePassword(hashedPassword string) (encodedPassword string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	//fmt.Println("Hashed password", string(encoded))
+	//xin-da-fmt.Println("Hashed password", string(encoded))
 
 	return string(encoded)
 }
@@ -115,8 +115,8 @@ func EncodePlainPassword(plainPassword string) (encodedPassword string) {
 
 func CheckPassword(hashedPassword string, password string) (isPasswordValid bool) {
 
-	//fmt.Printf("hashedPassword %s\r\n", hashedPassword)
-	//fmt.Printf("password %s\n", password)
+	//xin-da-fmt.Printf("hashedPassword %s\r\n", hashedPassword)
+	//xin-da-fmt.Printf("password %s\n", password)
 
 	if err := bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(password)); err != nil {
 		fmt.Printf("%x", err)

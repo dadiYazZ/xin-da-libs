@@ -46,8 +46,8 @@ func (m *Message) AttachFile(src string) error {
 func (m *Message) BodyToBytes() []byte {
 	buf := bytes.NewBuffer(nil)
 	withAttachments := len(m.Attachments) > 0
-	//buf.WriteString(fmt.Sprintf("From: %s\n", "matrix-x@artisan-cloud.com"))
-	//buf.WriteString(fmt.Sprintf("Subject: %s\n", m.Subject))
+	//buf.WriteString(xin-da-fmt.Sprintf("From: %s\n", "matrix-x@artisan-cloud.com"))
+	//buf.WriteString(xin-da-fmt.Sprintf("Subject: %s\n", m.Subject))
 	//
 	//if len(m.To) > 0 {
 	//	addresses := ""
@@ -55,7 +55,7 @@ func (m *Message) BodyToBytes() []byte {
 	//		addresses += addr.Address + ","
 	//	}
 	//	addresses = addresses[:len(addresses)-1]
-	//	buf.WriteString(fmt.Sprintf("To: %s\n", addresses))
+	//	buf.WriteString(xin-da-fmt.Sprintf("To: %s\n", addresses))
 	//
 	//}
 	//if len(m.CC) > 0 {
@@ -64,7 +64,7 @@ func (m *Message) BodyToBytes() []byte {
 	//		addresses += addr.Address + ","
 	//	}
 	//	addresses = addresses[:len(addresses)-1]
-	//	buf.WriteString(fmt.Sprintf("Cc: %s\n", addresses))
+	//	buf.WriteString(xin-da-fmt.Sprintf("Cc: %s\n", addresses))
 	//
 	//}
 	//
@@ -74,7 +74,7 @@ func (m *Message) BodyToBytes() []byte {
 	//		addresses += addr.Address + ","
 	//	}
 	//	addresses = addresses[:len(addresses)-1]
-	//	buf.WriteString(fmt.Sprintf("Bcc: %s\n", addresses))
+	//	buf.WriteString(xin-da-fmt.Sprintf("Bcc: %s\n", addresses))
 	//
 	//}
 
@@ -92,7 +92,7 @@ func (m *Message) BodyToBytes() []byte {
 	buf.WriteString(fmt.Sprintf("\n\n--%s\n", boundary))
 	if withAttachments {
 		for k, v := range m.Attachments {
-			//buf.WriteString(fmt.Sprintf("\n\n--%s\n", boundary))
+			//buf.WriteString(xin-da-fmt.Sprintf("\n\n--%s\n", boundary))
 			buf.WriteString(fmt.Sprintf("Content-Type: %s\n", http.DetectContentType(v)))
 			buf.WriteString("Content-Transfer-Encoding: base64\n")
 			buf.WriteString(fmt.Sprintf("Content-Disposition: attachment; filename=%s\n\n", k))
